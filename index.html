@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buschauer Media – Ersatzteile auf Maß</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f8f7f4;--white:#ffffff;--dark:#1a1a18;--mid:#5a5a56;--light:#9a9a94;
+      --accent:#1a3a5c;--accent2:#2d6a4f;--border:#e2e0d8;
+      --ff-heading:'DM Serif Display',serif;--ff-body:'DM Sans',sans-serif;
+    }
+    body{background:var(--bg);font-family:var(--ff-body);color:var(--dark)}
+    a{text-decoration:none;color:inherit}
+
+    nav{background:var(--white);border-bottom:0.5px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:10}
+    .nav-logo{font-family:var(--ff-heading);font-size:20px;letter-spacing:-.5px;color:var(--accent)}
+    .nav-links{display:flex;gap:2rem;font-size:14px;color:var(--mid)}
+    .nav-links span{cursor:pointer;transition:color .2s}.nav-links span:hover{color:var(--dark)}
+    .nav-cta{background:var(--accent);color:#fff;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;border:none;transition:opacity .2s}.nav-cta:hover{opacity:.85}
+    .lang-toggle{display:flex;gap:4px;font-size:12px;color:var(--light)}
+    .lang-toggle span{cursor:pointer;padding:2px 6px;border-radius:4px;transition:all .2s}
+    .lang-toggle span.active{background:var(--accent);color:#fff}
+
+    .hero{max-width:900px;margin:0 auto;padding:80px 2rem 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .hero-badge{display:inline-block;background:#e8f0f8;color:var(--accent);font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-bottom:20px}
+    .hero h1{font-family:var(--ff-heading);font-size:42px;line-height:1.15;color:var(--dark);margin-bottom:16px}
+    .hero p{font-size:15px;line-height:1.7;color:var(--mid);margin-bottom:28px}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:var(--accent);color:#fff;padding:11px 22px;border-radius:7px;font-size:14px;font-weight:500;cursor:pointer;border:none;transition:opacity .2s}.btn-primary:hover{opacity:.85}
+    .btn-secondary{background:transparent;color:var(--accent);padding:11px 22px;border-radius:7px;font-size:14px;font-weight:500;cursor:pointer;border:1.5px solid var(--accent);transition:all .2s}.btn-secondary:hover{background:var(--accent);color:#fff}
+    .hero-visual{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .hero-card{background:var(--white);border:0.5px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+    .hero-card-icon{font-size:22px;margin-bottom:8px}
+    .hero-card-label{font-size:12px;font-weight:500;color:var(--dark);margin-bottom:3px}
+    .hero-card-sub{font-size:11px;color:var(--light)}
+
+    .divider{max-width:900px;margin:0 auto;padding:0 2rem}
+    .divider hr{border:none;border-top:0.5px solid var(--border)}
+
+    .section{max-width:900px;margin:0 auto;padding:60px 2rem}
+    .section-label{font-size:12px;font-weight:500;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+    .section-title{font-family:var(--ff-heading);font-size:32px;color:var(--dark);margin-bottom:8px}
+    .section-sub{font-size:15px;color:var(--mid);margin-bottom:36px;max-width:520px;line-height:1.6}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service-card{background:var(--white);border:0.5px solid var(--border);border-radius:12px;padding:24px;transition:border-color .2s}.service-card:hover{border-color:#aaa}
+    .service-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:18px}
+    .service-icon.cad{background:#e8f0f8}
+    .service-icon.print{background:#e8f5ee}
+    .service-icon.machine{background:#fdf3e7}
+    .service-card h3{font-size:15px;font-weight:500;color:var(--dark);margin-bottom:8px}
+    .service-card p{font-size:13px;color:var(--mid);line-height:1.6}
+    .service-tag{display:inline-block;margin-top:12px;font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px;color:var(--accent);background:#e8f0f8}
+
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+    .process-step{position:relative}
+    .step-num{font-size:11px;font-weight:500;color:var(--light);margin-bottom:8px}
+    .step-title{font-size:14px;font-weight:500;color:var(--dark);margin-bottom:6px}
+    .step-text{font-size:13px;color:var(--mid);line-height:1.55}
+    .step-line{position:absolute;top:6px;right:0;width:60%;height:1px;background:var(--border)}
+
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+    .price-card{background:var(--white);border:0.5px solid var(--border);border-radius:12px;padding:24px}
+    .price-card.featured{border:2px solid var(--accent)}
+    .price-tier{font-size:12px;font-weight:500;color:var(--mid);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+    .price-val{font-family:var(--ff-heading);font-size:28px;color:var(--dark);margin-bottom:4px}
+    .price-note{font-size:12px;color:var(--light);margin-bottom:16px}
+    .price-desc{font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:16px}
+    .price-features{list-style:none;padding:0}
+    .price-features li{font-size:13px;color:var(--mid);padding:5px 0;border-bottom:0.5px solid var(--border);display:flex;gap:8px;align-items:flex-start}
+    .price-features li:last-child{border:none}
+    .check{color:#2d6a4f;font-size:14px;flex-shrink:0}
+    .popular-badge{display:inline-block;background:var(--accent);color:#fff;font-size:11px;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+
+    .contact-box{background:var(--white);border:0.5px solid var(--border);border-radius:14px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .contact-box h2{font-family:var(--ff-heading);font-size:28px;color:var(--dark);margin-bottom:12px}
+    .contact-box p{font-size:14px;color:var(--mid);line-height:1.7;margin-bottom:20px}
+    .contact-email{display:flex;align-items:center;gap:10px;background:#e8f0f8;padding:14px 18px;border-radius:8px}
+    .contact-email span{font-size:14px;font-weight:500;color:var(--accent)}
+    .contact-info{font-size:13px;color:var(--mid);line-height:1.8}
+    .contact-info strong{color:var(--dark);font-weight:500}
+
+    footer{border-top:0.5px solid var(--border);padding:24px 2rem;max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    footer p{font-size:12px;color:var(--light)}
+
+    .de,.en{transition:opacity .2s}
+    body.lang-en .de{display:none}
+    body.lang-de .en{display:none}
+
+    @media(max-width:700px){
+      .hero{grid-template-columns:1fr;padding:40px 1.5rem}
+      .hero-visual{display:none}
+      .services-grid,.pricing-grid{grid-template-columns:1fr}
+      .process-grid{grid-template-columns:1fr 1fr}
+      .contact-box{grid-template-columns:1fr}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+<body class="lang-de">
+
+<nav>
+  <div class="nav-logo">Buschauer Media</div>
+  <div class="nav-links">
+    <span onclick="scroll2('services')"><span class="de">Leistungen</span><span class="en">Services</span></span>
+    <span onclick="scroll2('process')"><span class="de">Ablauf</span><span class="en">Process</span></span>
+    <span onclick="scroll2('pricing')"><span class="de">Preise</span><span class="en">Pricing</span></span>
+    <span onclick="scroll2('contact')">Kontakt</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="lang-toggle">
+      <span class="active" id="btn-de" onclick="setLang('de')">DE</span>
+      <span id="btn-en" onclick="setLang('en')">EN</span>
+    </div>
+    <button class="nav-cta" onclick="scroll2('contact')"><span class="de">Anfrage senden</span><span class="en">Get a quote</span></button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div>
+    <div class="hero-badge de">Ersatzteile auf Maß</div>
+    <div class="hero-badge en">Custom spare parts</div>
+    <h1 class="de">Ihr Ersatzteil.<br>Präzise konstruiert.</h1>
+    <h1 class="en">Your spare part.<br>Precisely engineered.</h1>
+    <p class="de">Kein Katalog hat Ihr Teil? Ich konstruiere es in CAD und fertige es per 3D-Druck, Fräse oder Laser – zuverlässig und zum fairen Preis.</p>
+    <p class="en">Can't find your part in any catalogue? I design it in CAD and manufacture it via 3D printing, CNC milling, or laser cutting – reliable and fairly priced.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="scroll2('contact')"><span class="de">Jetzt anfragen</span><span class="en">Request now</span></button>
+      <button class="btn-secondary" onclick="scroll2('services')"><span class="de">Leistungen ansehen</span><span class="en">See services</span></button>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card"><div class="hero-card-icon">⚙️</div><div class="hero-card-label de">CAD-Konstruktion</div><div class="hero-card-label en">CAD Design</div><div class="hero-card-sub de">Präzise & maßgenau</div><div class="hero-card-sub en">Precise & exact</div></div>
+    <div class="hero-card"><div class="hero-card-icon">🖨️</div><div class="hero-card-label de">3D-Druck</div><div class="hero-card-label en">3D Printing</div><div class="hero-card-sub de">Schnell & flexibel</div><div class="hero-card-sub en">Fast & flexible</div></div>
+    <div class="hero-card"><div class="hero-card-icon">🔧</div><div class="hero-card-label de">CNC-Fräse</div><div class="hero-card-label en">CNC Milling</div><div class="hero-card-sub de">Hochbelastbar</div><div class="hero-card-sub en">High durability</div></div>
+    <div class="hero-card"><div class="hero-card-icon">⚡</div><div class="hero-card-label de">Laserschneiden</div><div class="hero-card-label en">Laser Cutting</div><div class="hero-card-sub de">Feine Konturen</div><div class="hero-card-sub en">Fine contours</div></div>
+  </div>
+</div>
+
+<div class="divider"><hr></div>
+
+<div class="section" id="services">
+  <div class="section-label de">Leistungen</div>
+  <div class="section-label en">Services</div>
+  <div class="section-title de">Was ich anbiete</div>
+  <div class="section-title en">What I offer</div>
+  <div class="section-sub de">Vom ersten Gespräch bis zum fertigen Teil – alles aus einer Hand.</div>
+  <div class="section-sub en">From the first consultation to the finished part – everything from one source.</div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon cad">⚙️</div>
+      <h3 class="de">CAD-Konstruktion</h3><h3 class="en">CAD Design</h3>
+      <p class="de">Ich zeichne Ihr Bauteil professionell in CAD nach – egal ob Skizze, Foto oder mündliche Beschreibung. Preis richtet sich nach Komplexität.</p>
+      <p class="en">I professionally draw your part in CAD – from a sketch, photo, or verbal description. Price depends on complexity.</p>
+      <span class="service-tag de">Ab Beschreibung</span><span class="service-tag en">From description</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon print">🖨️</div>
+      <h3 class="de">3D-Druck</h3><h3 class="en">3D Printing</h3>
+      <p class="de">Fertigung des konstruierten Teils direkt per 3D-Druck – ideal für Prototypen, Kunststoffteile und schnelle Lieferzeiten.</p>
+      <p class="en">Manufacturing of the designed part directly via 3D printing – ideal for prototypes, plastic parts, and fast delivery times.</p>
+      <span class="service-tag" style="background:#e8f5ee;color:#2d6a4f">Schnell & günstig</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon machine">🔧</div>
+      <h3 class="de">Fräse & Laser</h3><h3 class="en">Milling & Laser</h3>
+      <p class="de">Für präzisere Anforderungen: CNC-Fräsen für mechanisch belastete Teile, Laserschneiden für feine Konturen und Blechteile.</p>
+      <p class="en">For more precise requirements: CNC milling for mechanically stressed parts, laser cutting for fine contours and sheet metal parts.</p>
+      <span class="service-tag" style="background:#fdf3e7;color:#a05a00">Premium</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><hr></div>
+
+<div class="section" id="process">
+  <div class="section-label de">Ablauf</div>
+  <div class="section-label en">Process</div>
+  <div class="section-title de">Wie es funktioniert</div>
+  <div class="section-title en">How it works</div>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title de">Anfrage & Beschreibung</div><div class="step-title en">Request & description</div>
+      <div class="step-text de">Schicken Sie mir eine Skizze, ein Foto oder eine Beschreibung Ihres Teils.</div>
+      <div class="step-text en">Send me a sketch, photo, or description of your part.</div>
+      <div class="step-line"></div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title de">Angebot & Freigabe</div><div class="step-title en">Quote & approval</div>
+      <div class="step-text de">Sie erhalten ein transparentes Angebot. Erst nach Ihrer Freigabe geht es weiter.</div>
+      <div class="step-text en">You receive a transparent quote. We proceed only after your approval.</div>
+      <div class="step-line"></div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title de">Konstruktion & Fertigung</div><div class="step-title en">Design & manufacturing</div>
+      <div class="step-text de">Ich konstruiere das Teil in CAD und fertige es in der gewünschten Methode.</div>
+      <div class="step-text en">I design the part in CAD and manufacture it using the desired method.</div>
+      <div class="step-line"></div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-title de">Lieferung</div><div class="step-title en">Delivery</div>
+      <div class="step-text de">Ihr fertiges Teil wird geliefert oder kann abgeholt werden.</div>
+      <div class="step-text en">Your finished part is delivered or can be picked up.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><hr></div>
+
+<div class="section" id="pricing">
+  <div class="section-label de">Preise</div>
+  <div class="section-label en">Pricing</div>
+  <div class="section-title de">Transparente Preisgestaltung</div>
+  <div class="section-title en">Transparent pricing</div>
+  <div class="section-sub de">Der Preis richtet sich nach Komplexität. Kein Auftrag ist gleich – daher immer auf Anfrage.</div>
+  <div class="section-sub en">Pricing depends on complexity. No two orders are the same – always on request.</div>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-tier de">Einfach</div><div class="price-tier en">Simple</div>
+      <div class="price-val de">Auf Anfrage</div><div class="price-val en">On request</div>
+      <div class="price-note de">Einfache Geometrien</div><div class="price-note en">Simple geometries</div>
+      <div class="price-desc de">Für unkomplizierte Teile mit wenigen Merkmalen – z.B. Halterungen, Abdeckungen oder einfache Verbinder.</div>
+      <div class="price-desc en">For simple parts with few features – e.g. brackets, covers, or simple connectors.</div>
+      <ul class="price-features">
+        <li><span class="check">✓</span><span class="de">CAD-Zeichnung</span><span class="en">CAD drawing</span></li>
+        <li><span class="check">✓</span><span class="de">1 Revision</span><span class="en">1 revision</span></li>
+        <li><span class="check">✓</span><span class="de">3D-Druck möglich</span><span class="en">3D print available</span></li>
+      </ul>
+    </div>
+    <div class="price-card featured">
+      <div class="popular-badge de">Am häufigsten</div><div class="popular-badge en">Most common</div>
+      <div class="price-tier de">Mittel</div><div class="price-tier en">Medium</div>
+      <div class="price-val de">Auf Anfrage</div><div class="price-val en">On request</div>
+      <div class="price-note de">Mittlere Komplexität</div><div class="price-note en">Medium complexity</div>
+      <div class="price-desc de">Teile mit mehreren Merkmalen, Passungen oder Bohrungsmustern – typisch für Maschinenersatzteile.</div>
+      <div class="price-desc en">Parts with multiple features, tolerances, or hole patterns – typical for machine spare parts.</div>
+      <ul class="price-features">
+        <li><span class="check">✓</span><span class="de">CAD-Zeichnung</span><span class="en">CAD drawing</span></li>
+        <li><span class="check">✓</span><span class="de">2 Revisionen</span><span class="en">2 revisions</span></li>
+        <li><span class="check">✓</span><span class="de">Alle Fertigungsmethoden</span><span class="en">All manufacturing methods</span></li>
+      </ul>
+    </div>
+    <div class="price-card">
+      <div class="price-tier de">Komplex</div><div class="price-tier en">Complex</div>
+      <div class="price-val de">Auf Anfrage</div><div class="price-val en">On request</div>
+      <div class="price-note de">Hohe Komplexität</div><div class="price-note en">High complexity</div>
+      <div class="price-desc de">Aufwändige Bauteile mit engen Toleranzen, Freiformflächen oder Sonderanfertigungen.</div>
+      <div class="price-desc en">Complex components with tight tolerances, freeform surfaces, or special productions.</div>
+      <ul class="price-features">
+        <li><span class="check">✓</span><span class="de">CAD-Zeichnung</span><span class="en">CAD drawing</span></li>
+        <li><span class="check">✓</span><span class="de">Unbegrenzte Revisionen</span><span class="en">Unlimited revisions</span></li>
+        <li><span class="check">✓</span><span class="de">Priorität & Beratung</span><span class="en">Priority & consultation</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><hr></div>
+
+<div class="section" id="contact">
+  <div class="contact-box">
+    <div>
+      <div class="section-label de">Kontakt</div>
+      <div class="section-label en">Contact</div>
+      <h2 class="de">Bereit für Ihre Anfrage?</h2>
+      <h2 class="en">Ready for your request?</h2>
+      <p class="de">Beschreiben Sie mir Ihr Ersatzteil und ich melde mich schnell mit einem unverbindlichen Angebot. Bitte senden Sie eine Skizze oder ein Foto wenn möglich.</p>
+      <p class="en">Describe your spare part and I'll get back to you quickly with a no-obligation quote. Please send a sketch or photo if possible.</p>
+      <div class="contact-email">
+        <span>✉</span>
+        <span>kontakt.buschauer@gmail.com</span>
+      </div>
+    </div>
+    <div class="contact-info">
+      <p class="de"><strong>Buschauer Media</strong><br><br>
+      Ich freue mich auf Ihre Anfrage.<br>
+      Antwortzeit in der Regel unter 24 Stunden.<br><br>
+      <strong>Leistungen:</strong><br>
+      CAD-Konstruktion · 3D-Druck · CNC-Fräsen · Laserschneiden
+      </p>
+      <p class="en"><strong>Buschauer Media</strong><br><br>
+      Looking forward to your enquiry.<br>
+      Response time usually under 24 hours.<br><br>
+      <strong>Services:</strong><br>
+      CAD design · 3D printing · CNC milling · Laser cutting
+      </p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Buschauer Media</p>
+  <p class="de">Ersatzteile auf Maß</p>
+  <p class="en">Custom spare parts</p>
+</footer>
+
+<script>
+  function setLang(l){
+    document.body.className='lang-'+l;
+    document.getElementById('btn-de').className=l==='de'?'active':'';
+    document.getElementById('btn-en').className=l==='en'?'active':'';
+  }
+  function scroll2(id){
+    document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
