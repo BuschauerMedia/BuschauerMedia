@@ -5,99 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buschauer Media – Ersatzteile auf Maß</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --bg:#f8f7f4;--white:#ffffff;--dark:#1a1a18;--mid:#5a5a56;--light:#9a9a94;
-      --accent:#1a3a5c;--accent2:#2d6a4f;--border:#e2e0d8;
-      --ff-heading:'DM Serif Display',serif;--ff-body:'DM Sans',sans-serif;
-    }
-    body{background:var(--bg);font-family:var(--ff-body);color:var(--dark)}
-    a{text-decoration:none;color:inherit}
-
-    nav{background:var(--white);border-bottom:0.5px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:10}
-    .nav-logo{font-family:var(--ff-heading);font-size:20px;letter-spacing:-.5px;color:var(--accent)}
-    .nav-links{display:flex;gap:2rem;font-size:14px;color:var(--mid)}
-    .nav-links span{cursor:pointer;transition:color .2s}.nav-links span:hover{color:var(--dark)}
-    .nav-cta{background:var(--accent);color:#fff;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;border:none;transition:opacity .2s}.nav-cta:hover{opacity:.85}
-    .lang-toggle{display:flex;gap:4px;font-size:12px;color:var(--light)}
-    .lang-toggle span{cursor:pointer;padding:2px 6px;border-radius:4px;transition:all .2s}
-    .lang-toggle span.active{background:var(--accent);color:#fff}
-
-    .hero{max-width:900px;margin:0 auto;padding:80px 2rem 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-    .hero-badge{display:inline-block;background:#e8f0f8;color:var(--accent);font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-bottom:20px}
-    .hero h1{font-family:var(--ff-heading);font-size:42px;line-height:1.15;color:var(--dark);margin-bottom:16px}
-    .hero p{font-size:15px;line-height:1.7;color:var(--mid);margin-bottom:28px}
-    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-    .btn-primary{background:var(--accent);color:#fff;padding:11px 22px;border-radius:7px;font-size:14px;font-weight:500;cursor:pointer;border:none;transition:opacity .2s}.btn-primary:hover{opacity:.85}
-    .btn-secondary{background:transparent;color:var(--accent);padding:11px 22px;border-radius:7px;font-size:14px;font-weight:500;cursor:pointer;border:1.5px solid var(--accent);transition:all .2s}.btn-secondary:hover{background:var(--accent);color:#fff}
-    .hero-visual{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .hero-card{background:var(--white);border:0.5px solid var(--border);border-radius:10px;padding:16px;text-align:center}
-    .hero-card-icon{font-size:22px;margin-bottom:8px}
-    .hero-card-label{font-size:12px;font-weight:500;color:var(--dark);margin-bottom:3px}
-    .hero-card-sub{font-size:11px;color:var(--light)}
-
-    .divider{max-width:900px;margin:0 auto;padding:0 2rem}
-    .divider hr{border:none;border-top:0.5px solid var(--border)}
-
-    .section{max-width:900px;margin:0 auto;padding:60px 2rem}
-    .section-label{font-size:12px;font-weight:500;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
-    .section-title{font-family:var(--ff-heading);font-size:32px;color:var(--dark);margin-bottom:8px}
-    .section-sub{font-size:15px;color:var(--mid);margin-bottom:36px;max-width:520px;line-height:1.6}
-    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .service-card{background:var(--white);border:0.5px solid var(--border);border-radius:12px;padding:24px;transition:border-color .2s}.service-card:hover{border-color:#aaa}
-    .service-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:18px}
-    .service-icon.cad{background:#e8f0f8}
-    .service-icon.print{background:#e8f5ee}
-    .service-icon.machine{background:#fdf3e7}
-    .service-card h3{font-size:15px;font-weight:500;color:var(--dark);margin-bottom:8px}
-    .service-card p{font-size:13px;color:var(--mid);line-height:1.6}
-    .service-tag{display:inline-block;margin-top:12px;font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px;color:var(--accent);background:#e8f0f8}
-
-    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
-    .process-step{position:relative}
-    .step-num{font-size:11px;font-weight:500;color:var(--light);margin-bottom:8px}
-    .step-title{font-size:14px;font-weight:500;color:var(--dark);margin-bottom:6px}
-    .step-text{font-size:13px;color:var(--mid);line-height:1.55}
-    .step-line{position:absolute;top:6px;right:0;width:60%;height:1px;background:var(--border)}
-
-    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
-    .price-card{background:var(--white);border:0.5px solid var(--border);border-radius:12px;padding:24px}
-    .price-card.featured{border:2px solid var(--accent)}
-    .price-tier{font-size:12px;font-weight:500;color:var(--mid);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
-    .price-val{font-family:var(--ff-heading);font-size:28px;color:var(--dark);margin-bottom:4px}
-    .price-note{font-size:12px;color:var(--light);margin-bottom:16px}
-    .price-desc{font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:16px}
-    .price-features{list-style:none;padding:0}
-    .price-features li{font-size:13px;color:var(--mid);padding:5px 0;border-bottom:0.5px solid var(--border);display:flex;gap:8px;align-items:flex-start}
-    .price-features li:last-child{border:none}
-    .check{color:#2d6a4f;font-size:14px;flex-shrink:0}
-    .popular-badge{display:inline-block;background:var(--accent);color:#fff;font-size:11px;padding:3px 10px;border-radius:20px;margin-bottom:10px}
-
-    .contact-box{background:var(--white);border:0.5px solid var(--border);border-radius:14px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-    .contact-box h2{font-family:var(--ff-heading);font-size:28px;color:var(--dark);margin-bottom:12px}
-    .contact-box p{font-size:14px;color:var(--mid);line-height:1.7;margin-bottom:20px}
-    .contact-email{display:flex;align-items:center;gap:10px;background:#e8f0f8;padding:14px 18px;border-radius:8px}
-    .contact-email span{font-size:14px;font-weight:500;color:var(--accent)}
-    .contact-info{font-size:13px;color:var(--mid);line-height:1.8}
-    .contact-info strong{color:var(--dark);font-weight:500}
-
-    footer{border-top:0.5px solid var(--border);padding:24px 2rem;max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-    footer p{font-size:12px;color:var(--light)}
-
-    .de,.en{transition:opacity .2s}
-    body.lang-en .de{display:none}
-    body.lang-de .en{display:none}
-
-    @media(max-width:700px){
-      .hero{grid-template-columns:1fr;padding:40px 1.5rem}
-      .hero-visual{display:none}
-      .services-grid,.pricing-grid{grid-template-columns:1fr}
-      .process-grid{grid-template-columns:1fr 1fr}
-      .contact-box{grid-template-columns:1fr}
-      .nav-links{display:none}
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="lang-de">
 
@@ -110,6 +18,10 @@
     <span onclick="scroll2('contact')">Kontakt</span>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span class="theme-icon" id="theme-light">☀️</span>
+      <span class="theme-icon" id="theme-dark">🌙</span>
+    </button>
     <div class="lang-toggle">
       <span class="active" id="btn-de" onclick="setLang('de')">DE</span>
       <span id="btn-en" onclick="setLang('en')">EN</span>
@@ -302,14 +214,56 @@
 </footer>
 
 <script>
-  function setLang(l){
-    document.body.className='lang-'+l;
-    document.getElementById('btn-de').className=l==='de'?'active':'';
-    document.getElementById('btn-en').className=l==='en'?'active':'';
+  // Language Toggle
+  function setLang(l) {
+    document.body.classList.remove('lang-de', 'lang-en');
+    document.body.classList.add('lang-' + l);
+    document.getElementById('btn-de').className = l === 'de' ? 'active' : '';
+    document.getElementById('btn-en').className = l === 'en' ? 'active' : '';
+    localStorage.setItem('language', l);
   }
-  function scroll2(id){
-    document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+
+  // Theme Toggle
+  function toggleTheme() {
+    const isDark = document.body.classList.toggle('dark-mode');
+    updateThemeIcons(isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   }
+
+  function updateThemeIcons(isDark) {
+    const lightIcon = document.getElementById('theme-light');
+    const darkIcon = document.getElementById('theme-dark');
+    
+    if (isDark) {
+      lightIcon.classList.remove('active');
+      darkIcon.classList.add('active');
+    } else {
+      darkIcon.classList.remove('active');
+      lightIcon.classList.add('active');
+    }
+  }
+
+  // Smooth Scroll
+  function scroll2(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Initialize preferences from localStorage
+  window.addEventListener('DOMContentLoaded', () => {
+    // Load saved language
+    const savedLang = localStorage.getItem('language') || 'de';
+    setLang(savedLang);
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+    }
+    updateThemeIcons(isDark);
+  });
 </script>
 </body>
 </html>
