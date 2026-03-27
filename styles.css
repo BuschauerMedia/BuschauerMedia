@@ -61,6 +61,7 @@ nav {
   font-size: 20px;
   letter-spacing: -0.5px;
   color: var(--accent);
+  cursor: pointer;
 }
 
 .nav-links {
