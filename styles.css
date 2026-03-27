@@ -311,11 +311,19 @@ body.dark-mode .hero-badge {
 }
 
 .service-card {
+  width: 100%;
   background: var(--white);
   border: 0.5px solid var(--border);
   border-radius: 12px;
   padding: 24px;
   transition: border-color 0.2s, background-color 0.3s ease;
+}
+.service-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 0.5px solid var(--border);
+
 }
 
 .service-card:hover {
