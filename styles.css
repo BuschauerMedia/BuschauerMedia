@@ -633,3 +633,28 @@ body.lang-de .en {
     padding: 3px;
   }
 }
+
+
+/* Back Button Container */
+.back-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+  padding: 10px 22px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid var(--accent);
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: #fff;
+}

@@ -5,34 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Impressum – Buschauer Media</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'DM Sans', sans-serif; background: #f8f7f4; color: #1a1a18; padding: 40px 2rem; }
-    h1 { font-family: 'DM Serif Display', serif; font-size: 32px; color: #1a1a18; margin-bottom: 20px; }
-    p { font-size: 14px; line-height: 1.6; margin-bottom: 10px; }
-    footer { text-align: center; font-size: 12px; color: #9a9a94; padding: 20px 0; border-top: 0.5px solid #e2e0d8; }
-  </style>
+  <link rel="stylesheet" href="styles.css"> <!-- Deine Style-Datei einbinden -->
 </head>
 <body>
-  <h1>Impressum</h1>
-  
-  <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-  <p><strong>Buschauer Media</strong><br>
-  Stromgasse 42/50<br>
-  52064 Aachen<br>
-  Deutschland</p>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-logo">Buschauer Media</div>
+    <div class="nav-links">
+      <span><a href="index.html">Startseite</a></span>
+      <span><a href="impressum.html">Impressum</a></span>
+      <span><a href="kontakt.html">Kontakt</a></span>
+    </div>
+  </nav>
 
-  <p><strong>Vertreten durch:</strong> Lukas Buschauer</p>
+  <!-- Impressum Bereich -->
+  <section class="section">
+    <div>
+      <div class="section-label">Impressum</div>
+      <h2>Impressum</h2>
 
-  <p><strong>Kontakt:</strong><br>
-  <!--Telefon: +49 174 456789<br>-->
-  E-Mail: <a href="mailto:kontakt@buschauer-media.com">kontakt@buschauer-media.com</a></p>
+      <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+      <p><strong>Buschauer Media</strong><br>
+      Stromgasse 42/50<br>
+      52064 Aachen<br>
+      Deutschland</p>
 
-  <p><strong>Umsatzsteuer-ID:</strong> DE123456789</p>
+      <p><strong>Vertreten durch:</strong> Lukas Buschauer</p>
 
-  <p><strong>Haftungsausschluss:</strong><br>
-  Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+      <p><strong>Kontakt:</strong><br>
+      E-Mail: <a href="mailto:kontakt@buschauer-media.com">kontakt@buschauer-media.com</a></p>
 
+      <p><strong>Umsatzsteuer-ID:</strong> DE468425719</p>
+
+      <p><strong>Haftungsausschluss:</strong><br>
+      Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+
+      <!-- Zurück-Button -->
+      <div class="back-btn-container">
+        <button class="btn-secondary" onclick="window.location.href='index.html'">
+          <span class="de">Zurück zur Hauptseite</span>
+          <span class="en">Back to Home</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Buschauer Media</p>
   </footer>

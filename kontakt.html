@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt - Buschauer Media</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="lang-de">
+
+  <nav>
+    <div class="nav-logo">Buschauer Media</div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="theme-icon" id="theme-light">☀️</span>
+        <span class="theme-icon" id="theme-dark">🌙</span>
+      </button>
+      <div class="lang-toggle">
+        <span class="active" id="btn-de" onclick="setLang('de')">DE</span>
+        <span id="btn-en" onclick="setLang('en')">EN</span>
+      </div>
+      <!--<button class="nav-cta" onclick="scroll2('contact')"><span class="de">Anfrage senden</span><span class="en">Get a quote</span></button>-->
+    </div>
+  </nav>
+
+  <div class="section" id="contact">
+    <div class="contact-box">
+  <div>
+    <div class="section-label de">Kontakt</div>
+    <div class="section-label en">Contact</div>
+    <h2 class="de">Bereit für Ihre Anfrage?</h2>
+    <h2 class="en">Ready for your request?</h2>
+    <p class="de">Beschreiben Sie Ihr Ersatzteil und ich melde mich schnell mit einem unverbindlichen Angebot. Bitte senden Sie eine Skizze oder ein Foto wenn möglich.</p>
+    <p class="en">Describe your spare part and I'll get back to you quickly with a no-obligation quote. Please send a sketch or photo if possible.</p>
+  </div>
+  <div class="contact-info">
+    <h3 class="de">So erreichen Sie mich:</h3>
+    <h3 class="en">How to contact me:</h3>
+    <div class="contact-email">
+      <span>✉</span>
+      <span><a href="mailto:kontakt@buschauer-media.com">kontakt@buschauer-media.com</a></span>
+    </div>
+    <p class="de">
+      <strong>Buschauer Media</strong><br><br>
+      Ich freue mich auf Ihre Anfrage.<br>
+      Antwortzeit in der Regel unter 24 Stunden.<br><br>
+      <strong>Leistungen:</strong><br>
+      CAD-Konstruktion · 3D-Druck · CNC-Fräsen · Laserschneiden
+    </p>
+    <p class="en">
+      <strong>Buschauer Media</strong><br><br>
+      Looking forward to your enquiry.<br>
+      Response time usually under 24 hours.<br><br>
+      <strong>Services:</strong><br>
+      CAD design · 3D printing · CNC milling · Laser cutting
+    </p>
+  </div>
+  
+  <div class="back-btn-container">
+    <button class="btn-secondary" onclick="window.location.href='index.html'">
+      <span class="de">Zurück zur Hauptseite</span>
+      <span class="en">Back to Home</span>
+    </button>
+  </div>
+</div>
+  </div>
+
+  <footer>
+    <p>© 2025 Buschauer Media</p>
+    <p class="de">Ersatzteile auf Maß</p>
+    <p class="en">Custom spare parts</p>
+    <a href="impressum.html" style="font-size: 12px; color: #9a9a94;">Impressum</a>
+  </footer>
+
+  <script>
+    // Language Toggle
+    function setLang(l) {
+      document.body.classList.remove('lang-de', 'lang-en');
+      document.body.classList.add('lang-' + l);
+      document.getElementById('btn-de').className = l === 'de' ? 'active' : '';
+      document.getElementById('btn-en').className = l === 'en' ? 'active' : '';
+      localStorage.setItem('language', l);
+    }
+
+    // Theme Toggle
+    function toggleTheme() {
+      const isDark = document.body.classList.toggle('dark-mode');
+      updateThemeIcons(isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    function updateThemeIcons(isDark) {
+      const lightIcon = document.getElementById('theme-light');
+      const darkIcon = document.getElementById('theme-dark');
+
+      if (isDark) {
+        lightIcon.classList.remove('active');
+        darkIcon.classList.add('active');
+      } else {
+        darkIcon.classList.remove('active');
+        lightIcon.classList.add('active');
+      }
+    }
+
+    // Smooth Scroll
+    function scroll2(id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Initialize preferences from localStorage
+    window.addEventListener('DOMContentLoaded', () => {
+      // Load saved language
+      const savedLang = localStorage.getItem('language') || 'de';
+      setLang(savedLang);
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+
+      if (isDark) {
+        document.body.classList.add('dark-mode');
+      }
+      updateThemeIcons(isDark);
+    });
+  </script>
+</body>
+</html>
