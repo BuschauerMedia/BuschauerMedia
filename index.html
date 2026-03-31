@@ -2,14 +2,51 @@
 <html lang="de">
 
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KS86DMKR');</script>
-  <!-- End Google Tag Manager -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": { "background": "#23272d", "text": "#ffffff" },
+      "button": { "background": "#14a7d0", "text": "#ffffff" }
+    },
+    "type": "opt-in",
+    "content": {
+      "message": "Diese Website verwendet Cookies, um die Nutzererfahrung zu verbessern.",
+      "dismiss": "Ablehnen",
+      "allow": "Akzeptieren",
+      "link": "Mehr erfahren",
+      "href": "datenschutz.html"
+    },
+    onInitialise: function (status) {
+      if (this.hasConsented()) {
+        startTracking();
+      }
+    },
+    onStatusChange: function(status, chosenBefore) {
+      if (this.hasConsented()) {
+        startTracking();
+      }
+    }
+  })});
+
+  function startTracking() {
+    // Hier kommt dein Google Tag Code rein (siehe Schritt 2)
+    var script = document.createElement('script');
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-3MTMX3PTS8";
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3MTMX3PTS8');
+      console.log("Tracking aktiviert!");
+    }
+  </script>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buschauer Media – Ersatzteile auf Maß</title>
@@ -19,23 +56,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3MTMX3PTS8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3MTMX3PTS8');
-</script>
 
 
 <body class="lang-de">
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KS86DMKR"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-   
   <nav>
     <div class="nav-logo" onclick="window.location.href='index.html'">Buschauer Media </div>
     <div class="nav-links">
